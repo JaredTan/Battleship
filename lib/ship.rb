@@ -22,12 +22,11 @@ class Ship
 
   def randomly_place_ships(board)
     start = [rand(board.grid.length), rand(board.grid.length)]
-    direction = ['u', 'l', 'd', 'r']
-    direction = direction[rand(4)]
+    directions = ['u', 'l', 'd', 'r']
+    direction = directions[rand(4)]
     until valid_position?(board, start, direction, @ship_length)
       start = [rand(board.grid.length), rand(board.grid.length)]
-      direction = ['u', 'l', 'd', 'r']
-      direction = direction[rand(4)]
+      direction = directions[rand(4)]
     end
     set(board, start, direction, @ship_length)
     self.obtain_positions(start, direction, @ship_length)

@@ -86,10 +86,15 @@ class BattleshipGame
   end
 
   if __FILE__ == $PROGRAM_NAME
-    p1 = HumanPlayer.new('Jard')
-    p2 = HumanPlayer.new('Player 2')
+    print 'Player one name?: '
+    p1 = HumanPlayer.new(gets.chomp)
     print 'Play against a human or a computer? h / c :'
-    p2 = ComputerPlayer.new('King Battleship') if gets.chomp == 'c'
+    if gets.chomp == 'c'
+      p2 = ComputerPlayer.new('King Battleship')
+    else
+      print 'Player two name?: '
+      p2 = HumanPlayer.new(gets.chomp)
+    end
     print 'What size board? Min 5, Max 10. Ex: 7 -> 7x7: '
     size = gets.chomp.to_i
     until size >= 5 && size <= 10
